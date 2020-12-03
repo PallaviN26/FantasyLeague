@@ -17,7 +17,7 @@ public class MatchApi {
 	// i dont havae to store to match table from user ...
 	// i just have to display
 	// use get mapping 
-	// printing on web is done in js
+	// printing on web v   is done in js
 	// yes
 	
 	@GetMapping("/match")

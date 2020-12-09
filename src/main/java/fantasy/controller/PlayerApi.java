@@ -1,6 +1,7 @@
 package fantasy.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,28 +12,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import fantasy.model.Team;
-import fantasy.repo.TeamsRepo;
+import fantasy.model.PlayerList;
+import fantasy.repo.PlayerRepo;
 
 @Controller
-public class TeamApi {
-
+public class PlayerApi {
 	@Autowired
-	TeamsRepo teamsRepo;
-
-	@GetMapping("/team/{teamId}")
-	public ResponseEntity<Map<String, Object>> fetchTeam(@PathVariable("teamId") String teamId) {
-		Team team = teamsRepo.fetchTeam(teamId);
+	PlayerRepo playerrepo;
+	@GetMapping("/{user_team_id}/preview")
+	public ResponseEntity<Map<String, Object>> fetchPlayers(@PathVariable int user_team_id) {
+		List<PlayerList> u_players  = playerrepo.teamPlayers(user_team_id);
 		Map<String, Object> response = new HashMap<String, Object>();
-		response.put("data", team);
+		response.put("data", u_players);
 		response.put("status", "success");
 		return ResponseEntity.ok(response);
- 
 	}
-
-	@PostMapping("/team")
-	public ResponseEntity<String> addTeam(@RequestBody Team team) {
-		teamsRepo.insertWithQuery(team);
-		return ResponseEntity.ok("Team added successfully");
-	}
+//	@PostMapping("/user/{user_id}/match/{match_id}/players")
+//	public ResponseEntity<String> addTeam(@RequestBody players) {
+//
+//		// teamService.addTeam(team);
+//		teamsRepo.insertWithQuery();
+//		return ResponseEntity.ok("Team added successfully");
+//	}
 }

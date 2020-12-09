@@ -1,5 +1,7 @@
 package fantasy.repo;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -40,5 +42,13 @@ public class UserTeamRepo {
 		.setParameter(2, user_team_id)
 		.executeUpdate();
 	}
+	public List<UserTeam> Ranking(int match_id) {
+		@SuppressWarnings("unchecked")
+		List<UserTeam> card= (List<UserTeam>)entityManager.createNativeQuery("Select * from user_team where game_id = ? group by points desc", UserTeam.class)
+				                .setParameter(1, match_id);
+				                	
+	return card;
 	
+				
+	}
 }

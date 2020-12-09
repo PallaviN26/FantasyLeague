@@ -8,8 +8,13 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @SpringBootApplication
+@EnableWebMvc
 @Configuration
 @EntityScan(basePackages = {"fantasy.model"})
 public class FantasyApplication {
@@ -17,7 +22,7 @@ public class FantasyApplication {
 		SpringApplication.run(FantasyApplication.class, args);
 
 	}
-	
+
 	@Bean
 	public DataSource dataSource() {
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -31,4 +36,12 @@ public class FantasyApplication {
 	    return dataSource;
 	}
 	
+	@Bean
+	public ViewResolver getViewResolver(){
+	    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+	    resolver.setPrefix("/WEB-INF/jsp/");
+	    resolver.setSuffix(".jsp");
+	    resolver.setViewClass(JstlView.class);
+	    return resolver;
+	}
 }

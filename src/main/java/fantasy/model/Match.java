@@ -8,29 +8,29 @@ import javax.persistence.Id;
 @Entity
 public class Match {
 	@Id
-	public int match_id;
-	public String team1_id;
-	public String team2_id;
-	//public int image_id;
+	public String matchId;
 	public String venue;
-	public Date matchDate;
-	public int getMatch_id() {
-		return match_id;
+	public String firstId;
+	public String secondId;
+	//public Date matchDate;
+	public String getMatchId() {
+		return matchId;
 	}
-	public void setMatch_id(int match_id) {
-		this.match_id = match_id;
+	public void setMatchId(String matchId) {
+		this.matchId = matchId;
 	}
-	public String getTeam1_id() {
-		return team1_id;
+	
+	public String getFirstId() {
+		return firstId;
 	}
-	public void setTeam1_id(String team1_id) {
-		this.team1_id = team1_id;
+	public void setFirstId(String firstId) {
+		this.firstId = firstId;
 	}
-	public String getTeam2_id() {
-		return team2_id;
+	public String getSecondId() {
+		return secondId;
 	}
-	public void setTeam2_id(String team2_id) {
-		this.team2_id = team2_id;
+	public void setSecondId(String secondId) {
+		this.secondId = secondId;
 	}
 	public String getVenue() {
 		return venue;
@@ -38,12 +38,10 @@ public class Match {
 	public void setVenue(String venue) {
 		this.venue = venue;
 	}
-	public Date getMatchDate() {
-		return matchDate;
-	}
-	public void setMatchDate(Date matchDate) {
-		this.matchDate = matchDate;
-	}
-	
-	
+//	public Date getMatchDate() {
+//		return matchDate;
+//	}
+//	public void setMatchDate(Date matchDate) {
+//		this.matchDate = matchDate;
+//	}
 }

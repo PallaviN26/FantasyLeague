@@ -6,27 +6,32 @@ import javax.persistence.Id;
 @Entity
 public class PlayerList {
 	@Id
-	public int player_id;
-	public String player_name;
-	public int team_id;
-	public int score;
-	
-	public int getTeam_id() {
-		return team_id;
+	public String playerId;
+	public String playerName;
+	public String teamId;
+	public String category;
+	public String getPlayerId() {
+		return playerId;
 	}
-	public void setTeam_id(int team_id) {
-		this.team_id = team_id;
+	public void setPlayerId(String playerId) {
+		this.playerId = playerId;
 	}
-	public int getPlayer_id() {
-		return player_id;
+	public String getPlayerName() {
+		return playerName;
 	}
-	public void setPlayer_id(int player_id) {
-		this.player_id = player_id;
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
-	public String getPlayer_name() {
-		return player_name;
+	public String getTeamId() {
+		return teamId;
 	}
-	public void setPlayer_name(String player_name) {
-		this.player_name = player_name;
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

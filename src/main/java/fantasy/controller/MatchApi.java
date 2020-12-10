@@ -1,7 +1,5 @@
 package fantasy.controller;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import fantasy.model.Match;
-import fantasy.model.Team;
+import fantasy.model.MatchContainer;
 import fantasy.repo.MatchRepo;
 
 @Controller
@@ -21,13 +19,12 @@ public class MatchApi {
 	MatchRepo matchrepo;
 	
 	@GetMapping("/match")
-	public ResponseEntity<Map<String, Object>> fetchTeam() {
-		List<Match> match  = matchrepo.fetchMatches();
-		Map<String, Object> response = new HashMap<String, Object>();
-		response.put("data", match);
-		response.put("status", "success");
-		return ResponseEntity.ok(response);
-	}
+	public String fetchMatches(Map<String, Object> model) {
+    	MatchContainer con = new MatchContainer();
+    	con.setMatchList(matchrepo.fetchMatches());
+        model.put("message",con);
+        return "index";
+    }
 	
 	@PostMapping("/match")
 	public ResponseEntity<String> addTeam(@RequestBody Match match) {

@@ -1,6 +1,5 @@
 package fantasy.repo;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -28,14 +27,12 @@ public class MatchRepo {
 	      .setParameter(4, match.getVenue())
 	      .executeUpdate();    
 	}
+	
+	@SuppressWarnings("unchecked")
 	@Query
 	public List<Match> fetchMatches() {
 		List<Match> matches = entityManager.createNativeQuery("select * from match", Match.class)
 			.getResultList();
-		System.out.println("Hello");
-		for (Match match : matches)
-			System.out.println(match.getMatchId());
-		//return matches;
 		return matches;
 	}
 	

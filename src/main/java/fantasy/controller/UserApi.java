@@ -11,13 +11,11 @@ import fantasy.repo.UserRepo;
 @Controller
 public class UserApi {
 	@Autowired
-	UserRepo  userRepo;
+	UserRepo userRepo;
+
 	@PostMapping("/user")
 	public ResponseEntity<String> addUser(@RequestBody UserFantasy user) {
-		 boolean val = userRepo.insertWithQuery(user);
-		 if (val)
+		userRepo.insertWithQuery(user);
 		return ResponseEntity.ok("User account created successfully");
-		 else 
-			 return ResponseEntity.ok("Acount exists");
 	}
 }

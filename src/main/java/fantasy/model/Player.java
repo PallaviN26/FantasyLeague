@@ -10,6 +10,14 @@ public class Player {
 	public int playerId;
 	public int userId;
 	public int gameId;
+	public int score;
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 	public int getUserTeamId() {
 		return userTeamId;
 	}

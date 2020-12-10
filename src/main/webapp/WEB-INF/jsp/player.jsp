@@ -8,12 +8,12 @@
             <h1>Spring Boot JSP Example</h1>
            	
            	<table>      
-				<c:forEach items="${message.matchList}" var="match">
+				<c:forEach items="${result.players}" var="player">
 				    <tr>
-				    	<td>${match.matchId}</td>
-				        <td>${match.firstId}</td>
-				        <td>${match.secondId}</td>
-				        <td>${match.venue}</td>  
+				    	<td>${player.playerId}</td>
+				        <td>${player.playerName}</td>
+				        <td>${player.teamId}</td>
+				        <td>${player.category}</td>  
 				    </tr>
 				</c:forEach>
 		    </table>

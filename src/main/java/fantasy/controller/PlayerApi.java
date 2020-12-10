@@ -9,16 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import fantasy.model.PlayerList;
 import fantasy.repo.PlayerRepo;
 
 @Controller
 public class PlayerApi {
+	
 	@Autowired
 	PlayerRepo playerrepo;
+	
 	@GetMapping("/{user_team_id}/preview")
 	public ResponseEntity<Map<String, Object>> fetchPlayers(@PathVariable int user_team_id) {
 		List<PlayerList> u_players  = playerrepo.teamPlayers(user_team_id);

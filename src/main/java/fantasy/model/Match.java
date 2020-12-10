@@ -12,7 +12,7 @@ public class Match {
 	public String venue;
 	public String firstId;
 	public String secondId;
-	//public Date matchDate;
+	public Date matchDate;
 	public String getMatchId() {
 		return matchId;
 	}
@@ -38,10 +38,10 @@ public class Match {
 	public void setVenue(String venue) {
 		this.venue = venue;
 	}
-//	public Date getMatchDate() {
-//		return matchDate;
-//	}
-//	public void setMatchDate(Date matchDate) {
-//		this.matchDate = matchDate;
-//	}
+	public Date getMatchDate() {
+		return matchDate;
+	}
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
 }
